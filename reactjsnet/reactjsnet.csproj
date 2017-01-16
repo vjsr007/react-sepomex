@@ -166,6 +166,8 @@
     <Content Include="Scripts\Views\Home\Index.jsx" />
     <Content Include="Views\_ViewStart.cshtml" />
     <None Include="Properties\PublishProfiles\ReactJsNet.pubxml" />
+    <Content Include="Scripts\Components\CardList\cardList.jsx" />
+    <Content Include="Scripts\Components\CardList\card.jsx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -181,6 +183,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\ReactConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Global.asax.cs">

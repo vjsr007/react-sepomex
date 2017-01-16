@@ -1,13 +1,7 @@
-﻿var CommentBox = React.createClass({
-    render: function() {
-        return (
-          <div className="commentBox">
-            Hello, world! I am a CommentBox.
-          </div>
-      );
-    }
-});
-ReactDOM.render(
-  <CommentBox />,
-  document.getElementById('content')
-);
+﻿let cards = [
+    {'name': 'Super card', 'id': 1},
+    {'name': 'Other card', 'id': 2},
+    {'name': 'Last card', 'id': 3}
+];
+
+ReactDOM.render(<CardList cards={cards} />, document.getElementById("content"))
