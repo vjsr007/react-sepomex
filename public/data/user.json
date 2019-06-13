@@ -1,0 +1,9 @@
+[
+    {
+        "name": "Admin",
+        "pass": "Admin",
+        "auth": true,
+        "active": true,
+        "token": "TGtgkjfjfjf"
+    }
+]
