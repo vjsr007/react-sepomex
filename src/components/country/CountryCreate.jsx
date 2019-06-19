@@ -125,7 +125,7 @@ class CountryCreate extends Component {
                         value={country.code}
                         onChange={this.handleChange("code")}
                         margin="normal"
-                        inputProps={{maxLength: 2}}
+                        inputProps={{maxLength: 3}}
                       />
                     </Grid>
                     <Grid item xs={3}>
