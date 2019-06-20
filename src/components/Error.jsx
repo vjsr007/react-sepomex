@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { openSnackbar } from "./Notifier";
 
 export default class ErrorBoundary extends Component {
-  state = { hasError: false, message: "" };
+  state = { hasError: false, message: " " };
 
   componentDidCatch(error, info) {
     this.setState({ hasError: false, message: error });
