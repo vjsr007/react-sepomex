@@ -39,11 +39,6 @@ class EmployeeCreate extends Component {
   imgStyle = {
     display: "none"
   }
-  constructor(props) {
-    const { dispatch } = props;
-    dispatch(employeeAction.getEmptyEmployee());
-    super(props);
-  }
 
   handleChange = prop => event => {
     const { dispatch } = this.props;
@@ -58,7 +53,6 @@ class EmployeeCreate extends Component {
     const {
       match: { params }
     } = this.props;
-
     if (params.id && this.snapShot === '') {
       this.snapShot = this.props.employee.imageData;
       this.loadImage(this.snapShot);
@@ -67,12 +61,13 @@ class EmployeeCreate extends Component {
 
   componentDidMount() {
     const {
-      match: { params }
+      match: { params },
+      dispatch
     } = this.props;
 
-    this.props.dashboard.handleLoadingOpen();
+    dispatch(employeeAction.getEmptyEmployee());
 
-    const { dispatch } = this.props;
+    this.props.dashboard.handleLoadingOpen();
 
     if (params.id) {
       dispatch(employeeAction.getEmployeeById(params.id));
@@ -134,7 +129,7 @@ class EmployeeCreate extends Component {
       employeeId: this.props.employee.employeeId,
       firstName: this.props.employee.firstName,
       lastName: this.props.employee.lastName,
-      POB: this.props.employee.POB,
+      pob: this.props.employee.pob,
       userID: this.props.employee.userID,
       active: this.props.employee.active,
       imageData: this.snapShot
@@ -218,8 +213,8 @@ class EmployeeCreate extends Component {
                         id="POB"
                         label="Place of birthday"
                         className={classes.textField}
-                        value={employee.POB}
-                        onChange={this.handleChange("POB")}
+                        value={employee.pob}
+                        onChange={this.handleChange("pob")}
                         margin="normal"
                         inputProps={{ maxLength: 50 }}
                       />
@@ -284,7 +279,7 @@ EmployeeCreate.propTypes = {
   employeeId: PropTypes.number,
   firstName: PropTypes.string,
   lastName: PropTypes.string,
-  POB: PropTypes.number,
+  pob: PropTypes.number,
   lastChange: PropTypes.number,
   userID: PropTypes.number,
   active: PropTypes.bool,

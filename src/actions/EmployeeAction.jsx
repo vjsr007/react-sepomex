@@ -40,7 +40,7 @@ function getEmployeeById(id) {
   return dispatch => {
     let apiEndpoint = "employee/" + id;
     apiService.get(apiEndpoint).then(response => {
-      dispatch(editEmployeeDetails(id));
+      dispatch(editEmployeeDetails(id, response.data));
     });
   };
 }
@@ -99,10 +99,11 @@ export function handleOnChangeProps(props, value) {
   };
 }
 
-export function editEmployeeDetails(id) {
+export function editEmployeeDetails(id, employee) {
   return {
     type: "EMPLOYEE_DETAIL",
-    id: id
+    id: id,
+    employee: employee
   };
 }
 

@@ -3,7 +3,7 @@ const initialState = {
     employeeId: 0,
     firstName: "",
     lastName: "",
-    POB: "",
+    pob: "",
     lastChange: 0,
     userID: 0,
     active: false,
@@ -20,19 +20,20 @@ export function employee(state = initialState, action) {
                 employee: action.employee
             };
         case "EMPLOYEE_DETAIL":
-            const employeeDetail = parseInt(action.id) === 0 ? [{
+            const employeeDetail = parseInt(action.id) === 0 || !action.employee ? 
+            {
                 employeeId: 0,
                 firstName: "",
                 lastName: "",
-                POB: "",
+                pob: "",
                 lastChange: 0,
                 userID: 0,
                 active: false,
                 imageData: ""
-            }] : employee.filter(c => parseInt(c.employeeId) === parseInt(action.id))
+            } : action.employee
             return {
                 ...state,
-                ...employeeDetail[0]
+                ...employeeDetail
             };
         case "EMPLOYEE_CREATED_SUCCESSFULLY":
             return {
